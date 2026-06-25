@@ -1,0 +1,14 @@
+{
+  "name": "cbdc-cloudflare-free",
+  "private": true,
+  "version": "1.0.0",
+  "description": "CBDC risk simulator restructured for Cloudflare Pages + Workers + D1 free-tier deployment.",
+  "scripts": {
+    "install:all": "npm --prefix client install && npm --prefix worker install",
+    "dev:client": "npm --prefix client run dev",
+    "dev:worker": "npm --prefix worker run dev",
+    "build": "npm --prefix client run build && npm --prefix worker run build",
+    "zip": "cd .. && zip -r cbdc-cloudflare-free.zip cbdc-cloudflare-free -x '*/node_modules/*' '*/dist/*'"
+  },
+  "license": "MIT"
+}
