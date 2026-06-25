@@ -24,29 +24,20 @@ const DEFAULT_PARAMS: Params = {
   dynamic_cap: true, lolr: true, tiered: true, threshold: 0.62, mc_n: 300,
 }
 
-const API_BASE = "https://cbdc-13m.pages.dev";
-
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET,POST,DELETE,OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
-};
-
-if (request.method === "OPTIONS") {
-  return new Response(null, { headers: corsHeaders });
-}
+const API_BASE = "https://cbdc-api.churchoffire.workers.dev";
 
 async function api<T>(path:string, options:RequestInit = {}): Promise<T> {
-  const r = await fetch(API_BASE + path, {
+  const r = await fetch(`${API_BASE}${path}`, {
+    ...options,
     headers: {
-      'content-type': 'application/json',
+      "content-type": "application/json",
       ...(options.headers || {})
-    },
-    ...options
+    }
   });
 
   if (!r.ok) {
-    throw new Error((await r.json().catch(() => ({}))).detail || r.statusText);
+    const errorBody = await r.json().catch(() => ({}));
+    throw new Error(errorBody.detail || errorBody.error || r.statusText);
   }
 
   return r.json();
