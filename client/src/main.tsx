@@ -24,10 +24,22 @@ const DEFAULT_PARAMS: Params = {
   dynamic_cap: true, lolr: true, tiered: true, threshold: 0.62, mc_n: 300,
 }
 
+const API_BASE = "https://cbdc-13m.pages.dev";
+
 async function api<T>(path:string, options:RequestInit = {}): Promise<T> {
-  const r = await fetch('/api' + path, { headers: { 'content-type': 'application/json', ...(options.headers || {}) }, ...options })
-  if (!r.ok) throw new Error((await r.json().catch(() => ({}))).detail || r.statusText)
-  return r.json()
+  const r = await fetch(API_BASE + path, {
+    headers: {
+      'content-type': 'application/json',
+      ...(options.headers || {})
+    },
+    ...options
+  });
+
+  if (!r.ok) {
+    throw new Error((await r.json().catch(() => ({}))).detail || r.statusText);
+  }
+
+  return r.json();
 }
 
 function pct(v:number){ return (v*100).toFixed(1) + '%' }
