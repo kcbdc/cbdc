@@ -8,6 +8,22 @@ type Params = {
 
 type DayPoint = { day:number; outflow:number; failed:number; stability:number; stress:number; welfare:number; welfare_norm:number; cap:number; lolr_support:number; pay_eff:number; inclusion:number; innovation:number; risk:number; disinter:number; oper:number }
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET,POST,DELETE,OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+if (request.method === "OPTIONS") {
+  return new Response(null, { headers: corsHeaders });
+}
+
+return new Response(JSON.stringify(data), {
+  headers: {
+    "content-type": "application/json",
+    ...corsHeaders
+  }
+});
 const COEFF = {
   outflowDigital: 0.35, outflowRisk: 0.16, outflowCapBase: 0.05, outflowCapSlope: 0.06, cashBuffer: 0.35,
   fragConcentration: 0.25, fragDensity: 0.18, fragOutflow: 0.55, fragShock: 0.18,
