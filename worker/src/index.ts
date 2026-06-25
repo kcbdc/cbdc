@@ -1,3 +1,20 @@
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET,POST,DELETE,OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+if (request.method === "OPTIONS") {
+  return new Response(null, { headers: corsHeaders });
+}
+
+return new Response(JSON.stringify(data), {
+  headers: {
+    "content-type": "application/json",
+    ...corsHeaders
+  }
+});
+
 export interface Env { DB: D1Database }
 
 type Params = {
@@ -8,15 +25,6 @@ type Params = {
 
 type DayPoint = { day:number; outflow:number; failed:number; stability:number; stress:number; welfare:number; welfare_norm:number; cap:number; lolr_support:number; pay_eff:number; inclusion:number; innovation:number; risk:number; disinter:number; oper:number }
 
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Methods": "GET,POST,DELETE,OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
-};
-
-if (request.method === "OPTIONS") {
-  return new Response(null, { headers: corsHeaders });
-}
 
 return new Response(JSON.stringify(data), {
   headers: {
