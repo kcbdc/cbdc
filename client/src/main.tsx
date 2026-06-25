@@ -26,6 +26,16 @@ const DEFAULT_PARAMS: Params = {
 
 const API_BASE = "https://cbdc-13m.pages.dev";
 
+const corsHeaders = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "GET,POST,DELETE,OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+
+if (request.method === "OPTIONS") {
+  return new Response(null, { headers: corsHeaders });
+}
+
 async function api<T>(path:string, options:RequestInit = {}): Promise<T> {
   const r = await fetch(API_BASE + path, {
     headers: {
