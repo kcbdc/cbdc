@@ -1,0 +1,8 @@
+name = "cbdc-simulator-api"
+main = "src/index.ts"
+compatibility_date = "2026-06-25"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "cbdc_simulator_db"
+database_id = "REPLACE_WITH_YOUR_D1_DATABASE_ID"

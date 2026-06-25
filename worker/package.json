@@ -1,0 +1,9 @@
+{
+  "name": "cbdc-cloudflare-worker",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": { "dev": "wrangler dev", "deploy": "wrangler deploy", "build": "tsc --noEmit" },
+  "dependencies": { "wrangler": "latest", "typescript": "latest" },
+  "devDependencies": { "@cloudflare/workers-types": "latest" }
+}
