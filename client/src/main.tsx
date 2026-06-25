@@ -24,8 +24,7 @@ const DEFAULT_PARAMS: Params = {
   dynamic_cap: true, lolr: true, tiered: true, threshold: 0.62, mc_n: 300,
 }
 
-const API_BASE = "https://cbdc-api.churchoffire.workers.dev";
-
+const API_BASE = "https://cbdc-api.churchoffire.workers.dev/api";
 async function api<T>(path:string, options:RequestInit = {}): Promise<T> {
   const r = await fetch(`${API_BASE}${path}`, {
     ...options,
