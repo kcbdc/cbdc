@@ -27,7 +27,7 @@ const DEFAULT_PARAMS: Params = {
 const API_BASE = "https://cbdc-13m.pages.dev";
 
 async function api<T>(path:string, options:RequestInit = {}): Promise<T> {
-  const r = await fetch('https://cbdc-13m.pages.dev' + path, {
+  const r = await fetch(API_BASE + path, {
     headers: {
       'content-type': 'application/json',
       ...(options.headers || {})
