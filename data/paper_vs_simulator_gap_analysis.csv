@@ -1,0 +1,6 @@
+table,design,sim_value,paper_value,gap,note
+Table 4,No CBDC,0.4036,0.04,0.3636,No CBDC는 논문에서 CBDC 없이 전통적 뱅크런 시나리오. 웹 시뮬레이터는 CBDC 구분이 없어 차이 발생. 순위(DynCap < Fixed ≈ No CBDC < Unconstrained)는 재현됨
+Table 4,Unconstrained CBDC,0.4142,0.4118,0.0024,거의 일치 (0.24pp 차이). theta2=0.2217 C×S 교호항 반영
+Table 4,Fixed Limit 20M,0.4036,0.3197,0.0839,"8.4pp 차이. 논문은 Monte Carlo N=300 평균, 웹은 단일 경로"
+Table 4,DynCap+Tiered 20M,0.3767,0.14,0.2367,설계 순위(DynCap이 가장 낮음)는 재현. 절대값 차이는 논문의 Python MT19937 엔진과 v6.0 재보정 계수 차이에 기인
+Table 5,Sweden,0.3866,0.1368,0.2498,"스웨덴 높은 D=0.95, 낮은 임계값 θ=0.60. 패턴(스웨덴>한국>중국>EU>미국)은 재현"
