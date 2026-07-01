@@ -1,6 +1,7 @@
 name = "cbdc-simulator-api"
 main = "src/index.ts"
 compatibility_date = "2026-06-25"
+pages_build_output_dir = "client/dist"
 
 [[d1_databases]]
 binding = "DB"
