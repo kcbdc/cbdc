@@ -103,3 +103,4 @@ cd worker && npx wrangler deploy
 | 최적 임계값 | **5.5M KRW** | 논문 Table 7a |
 | 엔진 시드 | 20260618 | 논문 Section 3.1 |
 | 분석 기간 | 90일 | 논문 Section 3.1 |
+
